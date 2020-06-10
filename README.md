@@ -11,6 +11,7 @@ This container runs:
 * Fluxbox - a small window manager
 * WINE - to run Windows executables on linux
 * blueiris.exe - official Windows BlueIris
+* Sets Resolution to 1024x768
 
 ```
 docker run -d \
