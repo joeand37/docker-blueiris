@@ -48,5 +48,10 @@ ADD novnc /root/novnc/
 
 # Expose Port
 EXPOSE 8080
-
+HEALTHCHECK CMD powershell -command `  
+    try { `
+     $response = iwr http://localhost:80 -UseBasicParsing; `
+     if ($response.StatusCode -eq 200) { return 0} `
+     else {return 1}; `
+    } catch { return 1 }
 CMD ["/usr/bin/supervisord"]
